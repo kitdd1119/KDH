@@ -16,49 +16,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-class HomeScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('M P C'),
-      ),
-      body: Column(
-        children: [
-          Container(
-            padding: EdgeInsets.all(16),
-            child: Text(
-              '어서오세요 여기는 고기 가격 비교 전문점입니다.', //Meat Price Comparison shop
-              style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.all(16),
-            child: Text(
-              '정직하고 신선한 고기를 즐겨보세요!',
-              style: TextStyle(
-                fontSize: 16,
-              ),
-            ),
-          ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => LoginPage()),
-              );
-            },
-            child: Text('장보기'),
-          ),
-        ],
-      ),
-    );
-  }
-}
 /*
 class MyApp extends StatelessWidget {
   @override
@@ -71,6 +28,95 @@ class MyApp extends StatelessWidget {
   }
 }
 */
+
+class HomeScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('M P C'),
+        centerTitle: true, // 타이틀 가운데 정렬
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              padding: EdgeInsets.all(16),
+              child: Text(
+                '어서오세요 여기는 고기 가격 비교 전문점입니다.',
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(16),
+              child: Text(
+                '정직하고 신선한 고기를 즐겨보세요!',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.red,
+                ),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginPage()),
+                );
+              },
+              style: ButtonStyle(
+                // 버튼의 배경색을 변경하고 싶은 경우
+                backgroundColor: MaterialStateProperty.all(Colors.purple[200]),
+                // 버튼의 모서리를 둥글게 변경하고 싶은 경우
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                ),
+              ),
+              child: Text(
+                '장보기',
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => LoginPage()),
+                );
+              },
+              style: ButtonStyle(
+                // 버튼의 배경색을 변경하고 싶은 경우
+                backgroundColor: MaterialStateProperty.all(Colors.purple),
+                // 버튼의 모서리를 둥글게 변경하고 싶은 경우
+                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0),
+                  ),
+                ),
+              ),
+              child: Text(
+                '로그인하러 가기',
+                style: TextStyle(
+                  fontSize: 16,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
 class SignupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -155,7 +201,7 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('로그인 페이지'),
+        title: Text('로그인'),
       ),
       body: Center(
         child: Column(
@@ -181,7 +227,7 @@ class LoginPage extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => SignupPage()),
                 );
               },
-              child: Text('회원가입'),
+              child: Text('회원가입하러 가기'),
             ),
           ],
         ),
