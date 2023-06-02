@@ -10,24 +10,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'M P C',
       theme: ThemeData(
-        primarySwatch: Colors.green,
+        primarySwatch: Colors.deepPurple,
       ),
       home: HomeScreen(),
     );
   }
 }
-/*
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: '로그인 해보기',
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: LoginPage(),
-    );
-  }
-}
-*/
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -42,7 +30,7 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              padding: EdgeInsets.all(16),
+              padding: EdgeInsets.all(0),
               child: Text(
                 '어서오세요 여기는 고기 가격 비교 전문점입니다.',
                 style: TextStyle(
@@ -62,51 +50,57 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginPage()),
-                );
-              },
-              style: ButtonStyle(
-                // 버튼의 배경색을 변경하고 싶은 경우
-                backgroundColor: MaterialStateProperty.all(Colors.purple[200]),
-                // 버튼의 모서리를 둥글게 변경하고 싶은 경우
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
+            Container(
+              padding: EdgeInsets.all(8), // 버튼 사이의 간격 조정을 위한 패딩 추가
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPage()),
+                  );
+                },
+                style: ButtonStyle(
+                  // 버튼의 배경색을 변경하고 싶은 경우
+                  backgroundColor: MaterialStateProperty.all(Colors.purple[200]),
+                  // 버튼의 모서리를 둥글게 변경하고 싶은 경우
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
                   ),
                 ),
-              ),
-              child: Text(
-                '장보기',
-                style: TextStyle(
-                  fontSize: 16,
+                child: Text(
+                  '장보기',
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
                 ),
               ),
             ),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginPage()),
-                );
-              },
-              style: ButtonStyle(
-                // 버튼의 배경색을 변경하고 싶은 경우
-                backgroundColor: MaterialStateProperty.all(Colors.purple),
-                // 버튼의 모서리를 둥글게 변경하고 싶은 경우
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
+            Container(
+              padding: EdgeInsets.all(8), // 버튼 사이의 간격 조정을 위한 패딩 추가
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPage()),
+                  );
+                },
+                style: ButtonStyle(
+                  // 버튼의 배경색을 변경하고 싶은 경우
+                  backgroundColor: MaterialStateProperty.all(Colors.purple),
+                  // 버튼의 모서리를 둥글게 변경하고 싶은 경우
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
                   ),
                 ),
-              ),
-              child: Text(
-                '로그인하러 가기',
-                style: TextStyle(
-                  fontSize: 16,
+                child: Text(
+                  '로그인하러 가기',
+                  style: TextStyle(
+                    fontSize: 16,
+                  ),
                 ),
               ),
             ),
@@ -188,6 +182,18 @@ class SignupSuccessPage extends StatelessWidget {
             Text(
               '회원가입이 완료되었습니다!',
               style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(vertical: 20), // 위아래로 16.0 포인트의 간격 설정
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                  );
+                },
+                child: Text('홈으로 돌아가기'),
+              ),
             ),
           ],
         ),
