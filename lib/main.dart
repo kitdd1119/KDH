@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(MyApp());
 }
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'M P C',
       theme: ThemeData(
         primarySwatch: Colors.deepPurple,
@@ -22,7 +24,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('M P C'),
+        title: const Text('M P C'),
         centerTitle: true, // 타이틀 가운데 정렬
       ),
       body: Center(
@@ -30,8 +32,8 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              padding: EdgeInsets.all(0),
-              child: Text(
+              padding: const EdgeInsets.all(0),
+              child: const Text(
                 '어서오세요 여기는 고기 가격 비교 전문점입니다.',
                 style: TextStyle(
                   fontSize: 30,
@@ -41,8 +43,8 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Container(
-              padding: EdgeInsets.all(16),
-              child: Text(
+              padding: const EdgeInsets.all(16),
+              child: const Text(
                 '정직하고 신선한 고기를 즐겨보세요!',
                 style: TextStyle(
                   fontSize: 20,
@@ -51,12 +53,12 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Container(
-              padding: EdgeInsets.all(8), // 버튼 사이의 간격 조정을 위한 패딩 추가
+              padding: const EdgeInsets.all(8), // 버튼 사이의 간격 조정을 위한 패딩 추가
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => LoginPage()),
+                    MaterialPageRoute(builder: (context) => ShoppingPage()),
                   );
                 },
                 style: ButtonStyle(
@@ -69,7 +71,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                child: Text(
+                child: const Text(
                   '장보기',
                   style: TextStyle(
                     fontSize: 16,
@@ -78,7 +80,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Container(
-              padding: EdgeInsets.all(8), // 버튼 사이의 간격 조정을 위한 패딩 추가
+              padding: const EdgeInsets.all(8), // 버튼 사이의 간격 조정을 위한 패딩 추가
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -96,7 +98,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                child: Text(
+                child: const Text(
                   '로그인하러 가기',
                   style: TextStyle(
                     fontSize: 16,
@@ -111,37 +113,39 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
+
+
 class SignupPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('회원가입'),
+        title: const Text('회원가입'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             TextFormField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: '이메일',
               ),
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             TextFormField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: '비밀번호',
               ),
               obscureText: true,
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             TextFormField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: '한 번 더 입력해주세요.',
               ),
               obscureText: true,
             ),
-            SizedBox(height: 24.0),
+            const SizedBox(height: 24.0),
             ElevatedButton( // RaisedButton 대신 ElevatedButton으로 변경
               onPressed: () {
                 // 회원가입 버튼을 눌렀을 때 실행될 코드
@@ -153,7 +157,7 @@ class SignupPage extends StatelessWidget {
                   Navigator.pop(context);
                 });
               },
-              child: Text('회원가입'),
+              child: const Text('회원가입'),
             ),
           ],
         ),
@@ -167,32 +171,32 @@ class SignupSuccessPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('회원가입 완료'),
+        title: const Text('회원가입 완료'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Icon(
+            const Icon(
               Icons.check_circle_outline,
               size: 80.0,
               color: Colors.green,
             ),
-            SizedBox(height: 16.0),
-            Text(
+            const SizedBox(height: 16.0),
+            const Text(
               '회원가입이 완료되었습니다!',
               style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold),
             ),
             Container(
-              margin: EdgeInsets.symmetric(vertical: 20), // 위아래로 16.0 포인트의 간격 설정
+              margin: const EdgeInsets.symmetric(vertical: 20), // 위아래로 16.0 포인트의 간격 설정
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                    MaterialPageRoute(builder: (context) => ShoppingPage()),
                   );
                 },
-                child: Text('홈으로 돌아가기'),
+                child: const Text('장보러 가기'),
               ),
             ),
           ],
@@ -207,25 +211,25 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('로그인'),
+        title: const Text('로그인'),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             TextFormField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: '이메일',
               ),
             ),
-            SizedBox(height: 16.0),
+            const SizedBox(height: 16.0),
             TextFormField(
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: '비밀번호',
               ),
               obscureText: true,
             ),
-            SizedBox(height: 24.0),
+            const SizedBox(height: 24.0),
             ElevatedButton( // RaisedButton 대신 ElevatedButton으로 변경
               onPressed: () {
                 Navigator.push(
@@ -233,9 +237,71 @@ class LoginPage extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => SignupPage()),
                 );
               },
-              child: Text('회원가입하러 가기'),
+              child: const Text('회원가입하러 가기'),
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class ShoppingPage extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0.8,
+        backgroundColor: Colors.white,
+        leading: IconButton( // Icon버튼 위젯을 만듦
+          icon: const Icon(
+            Icons.arrow_back,
+            color: Colors.black,
+            size: 35,
+          ),
+          onPressed: () { // 이전 경로로 돌아감
+            Navigator.pop(context);
+          },
+        ),
+        title: const Center(
+          child: Text(
+            "장보기",
+            style: TextStyle(
+                color: Colors.black,
+              fontSize: 25,
+            ),
+          ),
+        ),
+        actions: const[
+          Icon(
+            Icons.search,
+            color: Colors.black,
+            size: 35,
+          ),
+          Icon(
+            Icons.map_rounded,
+            color: Colors.black,
+            size: 35,
+          ),
+          Row(
+            children: [
+              Icon(
+                Icons.menu,
+                color: Colors.black,
+                size: 35,
+              ),
+
+            ],
+          )
+        ],
+        bottom: PreferredSize(
+          preferredSize: const Size(0, 20),
+          child: Container(),
+        ),
+      ),
+      body: SafeArea(
+        child: Container(
+          color: Colors.deepPurple,
         ),
       ),
     );
