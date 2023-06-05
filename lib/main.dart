@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:latlong2/latlong.dart';
 
 
 void main() {
@@ -300,10 +303,38 @@ class ShoppingPage extends StatelessWidget{
         ),
       ),
       body: SafeArea(
-        child: Container(
-          color: Colors.deepPurple,
+        child: FutureBuilder<Position>(
+          future: getCurrentLocation(),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              final position = snapshot.data!;
+              return FlutterMap(
+                options: MapOptions(
+                  center: LatLng(position.latitude, position.longitude),
+                  zoom: 13.0,
+                ),
+                layers: [
+                  TileLayerOptions(
+                    urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+                    subdomains: ['a', 'b', 'c'],
+                  ),
+                ],
+              );
+            } else if (snapshot.hasError) {
+              return Center(child: Text('Error: ${snapshot.error}'));
+            } else {
+              return const Center(child: CircularProgressIndicator());
+            }
+          },
         ),
       ),
+    );
+  }
+
+  Future<Position> getCurrentLocation() async {
+    final GeolocatorPlatform geolocator = GeolocatorPlatform.instance;
+    return await geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.high,
     );
   }
 }
