@@ -37,7 +37,8 @@ class HomeScreen extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(0),
               child: const Text(
-                '어서오세요 여기는 고기 가격 비교 전문점입니다.',
+                '               어서오세요\n'
+                    '고기 가격 비교 전문점입니다.',
                 style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
@@ -48,7 +49,8 @@ class HomeScreen extends StatelessWidget {
             Container(
               padding: const EdgeInsets.all(16),
               child: const Text(
-                '정직하고 신선한 고기를 즐겨보세요!',
+                '  정직하고 신선한\n'
+                    '고기를 즐겨보세요!',
                 style: TextStyle(
                   fontSize: 20,
                   color: Colors.red,
